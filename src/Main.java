@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Main
 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         //     Scanner in = new Scanner(System.in);
         //     Calcul calcul = new Calcul();
@@ -16,7 +16,7 @@ public class Main
 
     }
 
-}
+
 
 class Calcul {
     public String input;
@@ -30,7 +30,7 @@ class Calcul {
 //        return input;
 //    }
 
-    public static String calc(String input) {
+    public static String calc(String input) throws Exception {
 
 
         //     Scanner in = new Scanner(System.in);
@@ -93,7 +93,10 @@ class Calcul {
 
                 }
             }catch (Exception  e) {
-                System.out.println("throws Exception");
+                throw new Exception( "throws Exception");
+
+
+
             }
 
             if (number1 == 0 | number2 == 0){
@@ -106,7 +109,10 @@ class Calcul {
                     number2 = Integer.parseInt(numbers[1]);
 
                     if (number1 >10 || number2 > 10 || number1 <= 0 || number2 <= 0 ||numbers.length != 2) {
-                        System.out.println("throws Exception ");
+                        System.out.println( "throws Exception");
+
+
+
 
                     }else {
                         resultArab = calculate(number1, number2, znac);
@@ -115,11 +121,11 @@ class Calcul {
 
                     }
                 }catch (NumberFormatException | ArrayIndexOutOfBoundsException | ArithmeticException e) {
-                    System.out.println("throws Exception ");
+                    throw new Exception( "throws Exception");
                 }
             }else {
                 try {if(number1 <= number2) {
-                    System.out.println("throws Exception ");}
+                    System.out.println( "throws Exception");}
                 else {
 
 
@@ -127,7 +133,8 @@ class Calcul {
                     String resultRom = romanSolution(result);
                     System.out.println(resultRom);
                 } } catch (NumberFormatException | ArrayIndexOutOfBoundsException | ArithmeticException e) {
-                    System.out.println("throws Exception");//ArrayIndexOutOfBoundsException
+                    //ArrayIndexOutOfBoundsException
+                    throw new Exception( "throws Exception");
                 }
             }
         }
@@ -182,7 +189,7 @@ class Calcul {
     }
 
     public static String romanSolution(int arabNumeral) {
-        String[] romanAll = {"throws Exception", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X",
+        String[] romanAll = {"throw Exception", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X",
                 "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX",
                 "XXI", "XXII", "XXIII", "XXIV", "XXV", "XXVI", "XXVII", "XXVIII", "XXIX",
                 "XXX", "XXXI", "XXXII", "XXXIII", "XXXIV", "XXXV", "XXXVI", "XXXVII", "XXXVIII",
@@ -197,4 +204,4 @@ class Calcul {
         q = romanAll[arabNumeral];
         return q;
     }
-}
+}}
