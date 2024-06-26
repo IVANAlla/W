@@ -1,40 +1,27 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 import java.util.Scanner;
-//import Calcul.java;
+
 
 public class Main
 {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args)throws Exception  {
 
-        //     Scanner in = new Scanner(System.in);
-        //     Calcul calcul = new Calcul();
-//System.out.println("\nInput: ");
+
         String input = "";
         Calcul.calc(input);
 
 
     }
 
-
+}
 
 class Calcul {
     public String input;
     public Calcul() {
     }
-//    public void setInput(String input) {
-//        this.input = input;
-//    }
-
-//    public String getInput() {
-//        return input;
-//    }
 
     public static String calc(String input) throws Exception {
-
-
-        //     Scanner in = new Scanner(System.in);
-
 
         while (true) {
 
@@ -46,9 +33,6 @@ class Calcul {
 
             input = input.trim();
             System.out.println("\nOutput: ");
-
-
-
 
             input = input.replace(" ", "");
 
@@ -93,10 +77,7 @@ class Calcul {
 
                 }
             }catch (Exception  e) {
-                throw new Exception( "throws Exception");
-
-
-
+                throw new Exception ();
             }
 
             if (number1 == 0 | number2 == 0){
@@ -109,10 +90,7 @@ class Calcul {
                     number2 = Integer.parseInt(numbers[1]);
 
                     if (number1 >10 || number2 > 10 || number1 <= 0 || number2 <= 0 ||numbers.length != 2) {
-                        System.out.println( "throws Exception");
-
-
-
+                        throw new Exception ();
 
                     }else {
                         resultArab = calculate(number1, number2, znac);
@@ -121,20 +99,18 @@ class Calcul {
 
                     }
                 }catch (NumberFormatException | ArrayIndexOutOfBoundsException | ArithmeticException e) {
-                    throw new Exception( "throws Exception");
+                    throw new Exception ();
                 }
             }else {
-                try {if(number1 <= number2) {
-                    System.out.println( "throws Exception");}
-                else {
+                try {
+                  if(number1== number2&&znac=='-'){throw new Exception ();}
 
 
                     result = calculate(number1, number2, znac);
                     String resultRom = romanSolution(result);
                     System.out.println(resultRom);
-                } } catch (NumberFormatException | ArrayIndexOutOfBoundsException | ArithmeticException e) {
-                    //ArrayIndexOutOfBoundsException
-                    throw new Exception( "throws Exception");
+                } catch (NumberFormatException | ArrayIndexOutOfBoundsException | ArithmeticException e) {
+                    throw new Exception ();
                 }
             }
         }
@@ -204,4 +180,4 @@ class Calcul {
         q = romanAll[arabNumeral];
         return q;
     }
-}}
+}
